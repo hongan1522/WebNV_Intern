@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MyPC\\Documents\\Hồng_Ân\\WebInter\\WebInter\\WebIntern.csproj": {}
+    "C:\\Users\\MyPC\\Desktop\\WebNV_Intern\\WebInter\\WebIntern.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MyPC\\Documents\\Hồng_Ân\\WebInter\\WebInter\\WebIntern.csproj": {
+    "C:\\Users\\MyPC\\Desktop\\WebNV_Intern\\WebInter\\WebIntern.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MyPC\\Documents\\Hồng_Ân\\WebInter\\WebInter\\WebIntern.csproj",
+        "projectUniqueName": "C:\\Users\\MyPC\\Desktop\\WebNV_Intern\\WebInter\\WebIntern.csproj",
         "projectName": "WebIntern",
-        "projectPath": "C:\\Users\\MyPC\\Documents\\Hồng_Ân\\WebInter\\WebInter\\WebIntern.csproj",
+        "projectPath": "C:\\Users\\MyPC\\Desktop\\WebNV_Intern\\WebInter\\WebIntern.csproj",
         "packagesPath": "C:\\Users\\MyPC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MyPC\\Documents\\Hồng_Ân\\WebInter\\WebInter\\obj\\",
+        "outputPath": "C:\\Users\\MyPC\\Desktop\\WebNV_Intern\\WebInter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MyPC\\AppData\\Roaming\\NuGet\\NuGet.Config",

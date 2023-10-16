@@ -13,7 +13,7 @@ namespace WebIntern.Services
         public List<NhanVien> GetNhanVien()
         {
             List<NhanVien> nv;
-
+            
             using (StreamReader reader = new StreamReader(FilePath))
             {
                 string jsonContent = reader.ReadToEnd();

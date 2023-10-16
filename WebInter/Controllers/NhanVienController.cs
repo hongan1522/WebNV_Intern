@@ -94,8 +94,6 @@ namespace WebIntern.Controllers
             return invalidFields;
         }
 
-
-
         [HttpGet]
         public ActionResult<List<NhanVien>> Get()
         {
@@ -155,8 +153,6 @@ namespace WebIntern.Controllers
             return NhanVien;
         }
 
-
-
         [HttpDelete("{MaNhanVien}")]
         public IActionResult Delete(string MaNhanVien)
         {
@@ -169,6 +165,14 @@ namespace WebIntern.Controllers
             }
 
             nhanVien.Remove(existingNhanVien);
+
+            //Khi xóa sẽ cập nhật mã lại theo thứ tự
+            int removedIndex = int.Parse(MaNhanVien.Substring(2)) - 1;
+            for (int i = removedIndex; i < nhanVien.Count; i++)
+            {
+                nhanVien[i].MaNhanVien = "NV" + (i + 1).ToString();
+            }
+
             _NhanVienService.SaveNhanVien(nhanVien);
             return NoContent();
         }
