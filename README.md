@@ -4,9 +4,9 @@
 
 ![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/85f102b7-dfea-4438-960e-10511b021e2c)
 
-![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/c386b4e7-8803-4ec2-9112-eb403c2f9bdd)
+![Ảnh chụp màn hình 2023-10-16 164405](https://github.com/hongan1522/WebNV_Intern/assets/95673805/c8f82676-e4bf-4d91-942f-56bd9802ae95)
 
-![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/901ab2e4-b271-413b-8f7d-bfc0c9e3befb)
+![Ảnh chụp màn hình 2023-10-16 164505](https://github.com/hongan1522/WebNV_Intern/assets/95673805/9a79bab3-f7a8-477b-bca6-cf1cbcd739b8)
 
 Nhân viên có các trường dữ liệu:
 - Mã nhân viên (string)
