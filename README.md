@@ -1,10 +1,25 @@
 # WebNV_Intern
 Đây là báo cáo kết quả về task web API sau khoảng thời gian làm của tôi tại Gonsa
-![Ảnh chụp màn hình 2023-10-14 235126](https://github.com/hongan1522/WebNV_Intern/assets/95673805/b0b83ccb-8b54-465f-93da-0a128d600303)
 
-![Ảnh chụp màn hình 2023-10-14 235255](https://github.com/hongan1522/WebNV_Intern/assets/95673805/6c0b3ef2-9ca1-465a-9a01-2fee05f942e4)
+![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/85f102b7-dfea-4438-960e-10511b021e2c)
 
-![Ảnh chụp màn hình 2023-10-14 235437](https://github.com/hongan1522/WebNV_Intern/assets/95673805/3dba9bae-dada-4360-9ea6-aadbdaece4c1)
+![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/c386b4e7-8803-4ec2-9112-eb403c2f9bdd)
 
-Project đọc dữ liệu từ file json để xử lý Get, Post (chức năng Post và Put gộp lại thành 1), Delete và mỗi khi thực hiện sẽ cập nhật vào file json. 
+![Ảnh chụp màn hình 2023-10-16 164250](https://github.com/hongan1522/WebNV_Intern/assets/95673805/901ab2e4-b271-413b-8f7d-bfc0c9e3befb)
+
+Nhân viên có các trường dữ liệu:
+- Mã nhân viên (string)
+- Tên nhân viên (string)
+- Ngày sinh (Datetime)
+- Email (string)
+- SĐT (string)
+- Địa chỉ (string)
+- Chức vụ chỉ có 3 giá trị: "Backend", "Frontend", "Teamlead" (string). Với chức vụ "Backend" thì mã sẽ là "BE00001", chức vụ "Frontend" thì mã sẽ là "FE00001", chức vụ "Teamlead" thì mã sẽ là "TL00001". Và mã sẽ tự tăng khi cập nhật.  
+
+Project đọc dữ liệu từ file json để xử lý các phương thức và mỗi khi thực hiện sẽ cập nhật vào file json
+- Get sắp xếp theo các chức vụ cũng như thữ tự tăng dần
+- Post (chức năng Post và Put gộp lại thành 1) có thể đổi các trường cũng như khi đổi chức vụ sẽ cập nhật mã chức vụ mới và xóa mã cũ
+- Delete xóa các mã sẽ tự cập nhật mã lại theo thứ tự 
+
+
 
