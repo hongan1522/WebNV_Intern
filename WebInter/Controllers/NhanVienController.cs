@@ -56,7 +56,7 @@ namespace WebIntern.Controllers
             Regex emailRegex = new Regex(@"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$");
             if (!emailRegex.IsMatch(nhanVien.Email))
             {
-                invalidFields.Add("Email đúng định dạng unknow@example.com");
+                invalidFields.Add("Email đúng định dạng example@gmail.com");
             }
 
             // Kiểm tra số điện thoại không trùng
@@ -158,6 +158,7 @@ namespace WebIntern.Controllers
         {
             List<NhanVien> nhanVien = _NhanVienService.GetNhanVien();
             var existingNhanVien = nhanVien.FirstOrDefault(e => e.MaNhanVien == MaNhanVien);
+            string deletedMaNhanVien = existingNhanVien.MaNhanVien;
 
             if (existingNhanVien == null)
             {
@@ -174,7 +175,8 @@ namespace WebIntern.Controllers
             }
 
             _NhanVienService.SaveNhanVien(nhanVien);
-            return NoContent();
+            return Ok("Đã xóa nhân viên " + deletedMaNhanVien + " và cập nhật lại mã.");
+            //return NoContent();
         }
     }
 }
