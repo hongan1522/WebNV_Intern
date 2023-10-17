@@ -23,7 +23,7 @@ namespace WebIntern.Services
             return nv;
         }
 
-        public int SaveNhanVien(List<NhanVien> nv)
+        public void SaveNhanVien(List<NhanVien> nv)
         {
             string jsonContent = JsonConvert.SerializeObject(nv);
 
@@ -31,8 +31,6 @@ namespace WebIntern.Services
             {
                 writer.Write(jsonContent);
             }
-
-            return nv.Count;
         }
     }
 }
