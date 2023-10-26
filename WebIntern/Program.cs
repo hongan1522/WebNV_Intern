@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using WebIntern.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddDbContext<EmpManagerContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectEmpManager")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,16 +1,23 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using WebIntern.Models;
 using WebIntern.Services;
 
 namespace WebIntern
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<NhanVienService>();
+            services.AddDbContext<EmpManagerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectEmpManager")));
+            services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +45,5 @@ namespace WebIntern
             });
         }
     }
-
 }
 
