@@ -16,7 +16,8 @@ namespace WebIntern.Controllers
         }
 
         // GET: api/Employees
-        [HttpGet]
+        [HttpGet ("GetEmp")]
+
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
             if (_context.Employees == null)
@@ -52,7 +53,7 @@ namespace WebIntern.Controllers
 
         // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("UpdateEmp/{id}")]
         public async Task<IActionResult> PutEmployee(string id, Employee employee)
         {
             if (id != employee.Id)
@@ -83,21 +84,15 @@ namespace WebIntern.Controllers
 
         // POST: api/Employees
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("AddEmp")]
         public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
             if (_context.Employees == null)
             {
-                return Problem("Entity set 'EmpManagerContext.Employees'  is null.");
+                return Problem("Tập thể thực thể 'EmpManagerContext.Employees' là null.");
             }
 
             employee.Id = GenerateId(employee.Position);
-
-            var existingEmployee = await _context.Employees.FindAsync(employee.Id);
-            if (existingEmployee != null)
-            {
-                return Conflict();
-            }
 
             _context.Employees.Add(employee);
             try
@@ -110,44 +105,6 @@ namespace WebIntern.Controllers
             }
 
             return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
-        }
-        private int GetMaxIdForPosition(string position)
-        {
-            var employees = _context.Employees
-                .Where(e => e.Position == position)
-                .AsEnumerable();
-
-            if (!employees.Any())
-            {
-                return 0;
-            }
-
-            int maxId = employees
-                .Select(e => int.Parse(e.Id.Substring(2)))
-                .Max();
-
-            return maxId;
-        }
-        private int GetNextAvailableNumber(string position)
-        {
-            var maxId = GetMaxIdForPosition(position);
-
-            var existingNumbers = _context.Employees
-                .Where(e => e.Position == position)
-                .AsEnumerable()
-                .Select(e => int.Parse(e.Id.Substring(2)))
-                .OrderBy(n => n)
-                .ToList();
-
-            for (int i = 1; i <= maxId; i++)
-            {
-                if (!existingNumbers.Contains(i))
-                {
-                    return i;
-                }
-            }
-
-            return maxId + 1;
         }
         private string GenerateId(string position)
         {
@@ -174,9 +131,30 @@ namespace WebIntern.Controllers
 
             return newId;
         }
+        private int GetNextAvailableNumber(string position)
+        {
+            var existingNumbers = _context.Employees
+                .Where(e => e.Position == position)
+                .AsEnumerable()
+                .Select(e => int.Parse(e.Id.Substring(2)))
+                .OrderBy(n => n)
+                .ToList();
+
+            int maxId = existingNumbers.Any() ? existingNumbers.Max() : 0;
+
+            for (int i = 1; i <= maxId; i++)
+            {
+                if (!existingNumbers.Contains(i))
+                {
+                    return i;
+                }
+            }
+
+            return maxId + 1;
+        }
 
         // DELETE: api/Employees/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteEmp/{id}")]
         public async Task<IActionResult> DeleteEmployee(string id)
         {
             var employeeToDelete = await _context.Employees.FindAsync(id);
