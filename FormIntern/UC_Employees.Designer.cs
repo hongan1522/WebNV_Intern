@@ -105,6 +105,7 @@
             dgvEmp.ScrollBars = ScrollBars.Vertical;
             dgvEmp.Size = new Size(1728, 791);
             dgvEmp.TabIndex = 0;
+            dgvEmp.RowPostPaint += dgvEmp_RowPostPaint;
             dgvEmp.SelectionChanged += DgvEmp_SelectionChanged;
             // 
             // ID
