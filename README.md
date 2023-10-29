@@ -26,6 +26,18 @@ Project WebIntern.NhanVien đọc dữ liệu từ file json để xử lý các
 
 ## **Project WebIntern.Employees**
 
+Phương thức GetEmp
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/92a11bfe-2c66-4180-80e5-b97398114a10)
+
+Phương thức AddEmp
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/5c3099ce-9c08-4923-a6b2-b33fa58faf98)
+
+Phương thức UpdateEmp
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/8cfb203f-c865-449a-95f2-739230237c4f)
+
+Phương thức DeleteEmp
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/e75925d5-4c04-41f3-afc1-6846fec50f7e)
+
 
 Employee có các trường dữ liệu:
 - Id (string)
@@ -44,11 +56,20 @@ Project WebIntern.Employee đọc dữ liệu từ cơ sở dữ liệu (CSDL) S
 
 ## **Project FormIntern**
 
+Giao diện người dùng
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/bc1313a7-fb46-49f1-83a7-dc1eb0387435)
 
-Project FormIntern sẽ lấp API từ project WebIntern.Employee và lưu dữ liệu vào CSDL. Với các chức năng chính:
-- Thêm 1 nhân viên mới đúng định dạng và lưu vào CSDL, sau đó load lên DataGridView cho người dùng xem thông tin nhân viên mới thêm với việc sử dụng API Method.Get từ WebIntern.Employee 
+Giao diện khi chọn nhân viên trên bảng dữ liệu thì hiển thị thông tin lên các TextBox
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/1444246f-e8ab-4860-a6f5-fadd5a5fe0eb)
+
+
+
+Project FormIntern sẽ lấp API từ project WebIntern.Employee và lưu dữ liệu vào CSDL. Khi load Form lên thì sử dụng API Method.Get từ WebIntern.Employee để lấy dữ liệu hiển thị lên DataGridView cho người dùng xem thông tin các nhân viên. Với các chức năng chính:
+- Thêm 1 nhân viên mới đúng định dạng và lưu vào CSDL, sau đó load lên DataGridView cho người dùng xem thông tin nhân viên mới thêm với việc sử dụng API Method.Post từ WebIntern.Employee 
 - Refresh là xóa nội dung trong các TextBox 
 - Xóa 1 nhân viên khi dùng API Method.Delete từ WebIntern.Employee
-- 
+- Sửa 1 nhân viên mới đúng định dạng và lưu vào CSDL, sau đó load lên DataGridView cho người dùng xem thông tin nhân viên mới cập nhật với việc sử dụng API Method.Put từ WebIntern.Employee
+- Import nhân viên từ file Excel, kiểm tra Id trùng hay không đúng định dạng thì không Import nhân viên đó, khi Import thành công sẽ thông báo và load thông tin các nhân viên mới Import lên DataGridView
+- Export nhân viên ra file Excel, lưu các thông tin đầy đủ danh sách nhân viên vào file excel
 
 
