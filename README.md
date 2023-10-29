@@ -62,6 +62,10 @@ Giao diện người dùng
 Giao diện khi chọn nhân viên trên bảng dữ liệu thì hiển thị thông tin lên các TextBox
 ![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/1444246f-e8ab-4860-a6f5-fadd5a5fe0eb)
 
+Giao diện khi thêm 1 nhân viên
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/0de65eac-f925-400b-93b3-ff9e91350f14)
+
+
 
 
 Project FormIntern sẽ lấp API từ project WebIntern.Employee và lưu dữ liệu vào CSDL. Khi load Form lên thì sử dụng API Method.Get từ WebIntern.Employee để lấy dữ liệu hiển thị lên DataGridView cho người dùng xem thông tin các nhân viên. Với các chức năng chính:
