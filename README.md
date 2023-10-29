@@ -112,10 +112,12 @@ Project FormIntern sẽ lấy API từ project WebIntern.Employee và lưu dữ 
   + Tạo Database tên EmpManager
   + Trong Folder đã clone về có file .sql, mở file đó và Excute toàn bộ
 - Trong Project WebIntern: Đổi đường dẫn trong appsetting.json 
+
 "ConnectionStrings": {
   *"ConnectEmpManager": "Server=**your-server**; Database=EmpManager; Integrated Security=True; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true"
 }*
 - Trong Project FormIntern: Đổi các đường dẫn trong UC_Employeess.cs với line 20, line 80, line 103, line 342
+
 *var options = new DbContextOptionsBuilder<EmpManagerContext>()
     .UseSqlServer("Server=**your-server**; Database=EmpManager; Integrated Security=True; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true")
     .Options;
