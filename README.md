@@ -26,6 +26,8 @@ Project WebIntern.NhanVien đọc dữ liệu từ file json để xử lý các
 - Post để thêm nhân viên, Put để cập nhật thông tin nhân viên lại, trừ mã (chức năng Post và Put gộp lại thành 1) có thể đổi các trường cũng như khi đổi chức vụ sẽ cập nhật mã chức vụ mới và xóa mã cũ. Khi không tìm thấy mã sẽ Post nhân viên mới, tìm thấy mã thì Put lại thông tin nhân viên đó
 - Deleted dùng xóa nhân viên, khi xóa các mã sẽ tự cập nhật mã lại theo thứ tự
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## **Project WebIntern.Employees**
 
 Phương thức GetEmp
@@ -55,6 +57,12 @@ Project WebIntern.Employee đọc dữ liệu từ cơ sở dữ liệu (CSDL) S
 - Post để thêm mới 1 Employee, khi thêm sẽ tự động tạo mã mới mà không trùng nhau trong CSDL, tạo mã đúng định dạng theo từng Position
 - Put để sửa lại thông tin Employee 
 - Delete dùng để xóa Employee
+
+## **SQL Server** 
+
+Dữ liệu lưu vào table Employee
+![image](https://github.com/hongan1522/WebNV_Intern/assets/95673805/80fce3a8-753f-49b1-8869-970759be4ddd)
+
 
 ## **Project FormIntern**
 
@@ -97,4 +105,19 @@ Project FormIntern sẽ lấy API từ project WebIntern.Employee và lưu dữ 
 - Import nhân viên từ file Excel, kiểm tra Id trùng hay không đúng định dạng thì không Import nhân viên đó, khi Import thành công sẽ thông báo và load thông tin các nhân viên mới Import lên DataGridView
 - Export nhân viên ra file Excel, lưu các thông tin đầy đủ danh sách nhân viên vào file excel
 
-
+## **Cách cài đặt**-
+- Copy link HTTPS trong phần Code trên Github
+- Tại máy tính, ta mở git bash gõ lệnh "git clone https://github.com/hongan1522/WebNV_Intern.git" rồi Enter
+- Trong SQL Server:
+  + Tạo Database tên EmpManager
+  + Trong Folder đã clone về có file .sql, mở file đó và Excute toàn bộ
+- Trong Project WebIntern: Đổi đường dẫn trong appsetting.json 
+"ConnectionStrings": {
+  *"ConnectEmpManager": "Server=**your-server**; Database=EmpManager; Integrated Security=True; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true"
+}*
+- Trong Project FormIntern: Đổi các đường dẫn trong UC_Employeess.cs với line 20, line 80, line 103, line 342
+*var options = new DbContextOptionsBuilder<EmpManagerContext>()
+    .UseSqlServer("Server=**your-server**; Database=EmpManager; Integrated Security=True; Trusted_Connection=True; TrustServerCertificate=True; MultipleActiveResultSets=true")
+    .Options;
+dbContext = new EmpManagerContext(options);*
+- Sau đó bấm chạy, Project sẽ mở song song Web API và Form, thực hiện các phương thức trên Form 
