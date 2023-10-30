@@ -113,6 +113,25 @@ namespace FormIntern
 
             return false;
         }
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            // Loại bỏ các dấu cách hiện tại trong chuỗi số điện thoại
+            string phoneNumber = txtPhone.Text.Replace(" ", "");
+
+            // Tạo một danh sách để lưu các phần đã chia
+            List<string> parts = new List<string>();
+
+            // Chia chuỗi thành các phần 3 số và nối lại với dấu cách
+            for (int i = 0; i < phoneNumber.Length; i += 3)
+            {
+                int length = Math.Min(3, phoneNumber.Length - i);
+                parts.Add(phoneNumber.Substring(i, length));
+            }
+
+            // Cập nhật lại TextBox với chuỗi đã định dạng
+            txtPhone.Text = string.Join(" ", parts);
+            txtPhone.SelectionStart = txtPhone.Text.Length; // Giữ người dùng ở cuối TextBox
+        }
         private void DgvEmp_SelectionChanged(object sender, EventArgs e)
         {
             dtpBd.Format = DateTimePickerFormat.Custom;
@@ -139,7 +158,7 @@ namespace FormIntern
             using (SolidBrush brush = new SolidBrush(dgvEmp.RowHeadersDefaultCellStyle.ForeColor))
             {
                 // Xác định vị trí để vẽ số thứ tự trên hàng tiêu đề
-                float x = e.RowBounds.Left + 20; 
+                float x = e.RowBounds.Left + 20;
                 float y = e.RowBounds.Top + (e.RowBounds.Height - e.InheritedRowStyle.Font.Height) / 2;
 
                 // Vẽ số thứ tự

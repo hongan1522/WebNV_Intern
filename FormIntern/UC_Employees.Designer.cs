@@ -306,6 +306,7 @@
             txtPhone.PlaceholderText = "012*******";
             txtPhone.Size = new Size(445, 39);
             txtPhone.TabIndex = 5;
+            txtPhone.TextChanged += txtPhone_TextChanged;
             // 
             // label3
             // 
